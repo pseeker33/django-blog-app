@@ -112,3 +112,8 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = 'blog-home' # After login, go Home
 LOGOUT_REDIRECT_URL = 'welcome' # After logout, go Welcome
 LOGIN_URL = '/users/login'
+
+# Sesión persistente
+SESSION_COOKIE_AGE = 1209600  # 2 semanas en segundos
+SESSION_SAVE_EVERY_REQUEST = True
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False
