@@ -1,0 +1,19 @@
+# Entorno virtual
+env/
+
+# Archivos de configuración del entorno
+*.env
+
+# Archivos de caché de Python
+__pycache__/
+*.py[cod]
+
+# Archivos de base de datos SQLite (si usas SQLite)
+db.sqlite3
+
+# Archivos de dependencias de Django
+/staticfiles/
+/media/
+
+# Configuración de VSCode
+.vscode/
