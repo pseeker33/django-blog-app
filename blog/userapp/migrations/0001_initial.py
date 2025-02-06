@@ -15,16 +15,15 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Entry',
+            name='Profile',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('entry_title', models.CharField(max_length=50)),
-                ('entry_text', models.TextField()),
-                ('entry_date', models.DateTimeField(auto_now_add=True)),
-                ('entry_autor', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('bio', models.TextField(blank=True, max_length=500)),
+                ('profile_picture', models.ImageField(blank=True, null=True, upload_to='profile_pics/')),
+                ('facebook', models.URLField(blank=True)),
+                ('twitter', models.URLField(blank=True)),
+                ('linkedin', models.URLField(blank=True)),
+                ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
-            options={
-                'verbose_name_plural': 'entries',
-            },
         ),
     ]
