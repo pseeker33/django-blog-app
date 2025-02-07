@@ -5,12 +5,12 @@ from .models import Entry
 
 class HomeView(LoginRequiredMixin, ListView):
     model = Entry
-    template_name = 'blogapp/index.html'
+    template_name = 'blogapp/home.html'
     context_object_name = 'blog_entries'
     ordering = ['-entry_date']
     paginate_by = 3
 
-class EntryView(LoginRequiredMixin, DetailView):
+class EntryDetailView(LoginRequiredMixin, DetailView):
     model = Entry
     template_name = 'blogapp/entry_detail.html'
     context_object_name = 'entry-detail'
