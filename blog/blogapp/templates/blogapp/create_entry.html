@@ -1,15 +1,27 @@
 {% extends 'blogapp/base.html' %}
+{% load static %}
+
 {% block content %}
+
+<link href="{% static 'blogapp/css/createentry.css' %}" rel="stylesheet">
+
 <!-- Blog Entries Column -->
-<div class="col-md-8">
-    <div class="card mb-4 mt-4">
+<div class="create-entry-container">
+    <div class="create-entry-card">
         <div class="card-header">
-            Create Blog Post
+            <h2>Create Blog Post</h2>
         </div>
         <div class="card-body">
-            <form method="post">
+            <form method="post" class="create-entry-form">
                 {% csrf_token %}
-                {{form.as_p}}
+                <div class="form-group">
+                    <label for="id_entry_title">Title</label>
+                    {{ form.entry_title }}
+                </div>
+                <div class="form-group">
+                    <label for="id_entry_text">Content</label>
+                    {{ form.entry_text }}
+                </div>
                 <button type="submit" class="btn btn-primary">Post Entry</button>
             </form>
         </div>
