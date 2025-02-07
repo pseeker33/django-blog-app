@@ -1,21 +1,27 @@
 {% extends 'blogapp/base.html' %}
+{% load static %}
+
 {% block content %} 
+<link rel="stylesheet" href="{% static 'blogapp/css/home.css' %}">
+
 <!-- Blog Entries Column -->
 <div class="col-md-8">
-    {% for entry in blog_entries %} 
-    <!-- Blog Post -->
-    <div class="card mb-4 mt-4">
-        <div class="card-body">
-            <h3 class="card-title">{{ entry.entry_title }}</h3>
-            <p class="card-text">{{ entry.entry_text|truncatechars:100 }}</p>
-            <a href="{% url 'entry-detail' entry.pk %}" class="btn btn-primary btn-sm">Read More &rarr;</a>
+    <div class="blog-entries-grid">
+        {% for entry in blog_entries %} 
+        <!-- Blog Post -->
+        <div class="card blog-card mb-4 mt-4">
+            <div class="card-body">
+                <h3 class="card-title">{{ entry.entry_title }}</h3>
+                <p class="card-text">{{ entry.entry_text|truncatechars:100 }}</p>
+                <a href="{% url 'entry-detail' entry.pk %}" class="btn btn-read-more">Read More &rarr;</a>
+            </div>
+            <div class="card-footer">
+                Posted on {{ entry.entry_date }} by 
+                <span class="text-info">{{ entry.entry_autor }}</span>
+            </div>
         </div>
-        <div class="card-footer text-muted">
-            Posted on {{ entry.entry_date }} by 
-            <span class="text-info mr-2">{{ entry.entry_autor }}</span>
-        </div>
-    </div>
-    {% endfor %} 
+        {% endfor %}
+</div>
 
     <!-- Pagination -->
     {% if is_paginated %}

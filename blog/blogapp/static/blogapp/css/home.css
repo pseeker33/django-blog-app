@@ -1,0 +1,133 @@
+/* Estilos para home.html */
+
+.card {
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-entries-grid {
+  display: grid;
+  /* grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); */
+  grid-template-columns: repeat(3, 1fr);  /* Grid exacto 3 columnas */
+  grid-template-rows: repeat(2, 1fr); 
+  column-gap: 20px;  /* Espacio horizontal entre columnas */
+  row-gap: 10px; 
+  width: 100%;
+  /* max-height: 100vh;  */
+  min-width:900px;
+  margin-bottom: 3rem;
+}
+
+.blog-entries-grid .blog-card {
+  width: 100%;
+  margin: 0; /* Eliminar márgenes originales */
+}
+
+/* Estilos generales para las tarjetas de blog */
+.blog-card {
+  height: 100%;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.blog-card .card-body {
+  padding: 1.1rem;
+  
+}
+
+.blog-card .card-title {
+  font-size: 1.75rem;
+  color: var(--primary-color);
+}
+
+.blog-card .card-text {
+  font-size: 1rem;
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Botón "Read More" */
+.card .btn-read-more {
+  position: absolute;
+  top: 35%;
+  left: 30%;
+  /* transform: translate(-50%, -50%); */
+  opacity: 0;
+  background-color: rgba(79, 70, 229, 0.5); /* Color semitransparente */
+  border: none;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  color: white;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: opacity 0.3s ease-in-out, background-color 0.7s ease;
+  pointer-events: none;
+  cursor: pointer;
+}
+
+.card:hover .btn-read-more {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.card .btn-read-more:hover {
+  background-color: rgba(79, 70, 229, 0.9); /* Hace el botón sólido en hover */
+}
+
+.blog-card .btn-read-more:hover {
+  background-color: var(--primary-color);
+  transform: scale(1.05);
+}
+
+/* Footer del post */
+.blog-card .card-footer {
+  background: var(--background-color);
+  font-size: 0.7rem;
+  color: var(--text-color);
+  text-align: right;
+  padding: 0.8rem 1.5rem;
+  opacity: 0.8; /* Hace el texto un poco más sutil */
+}
+
+.blog-card .card-footer .text-info {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.card-footer {
+  font-size: 0.7rem; /* Reduce el tamaño del texto */
+  opacity: 0.8; /* Hace el texto un poco más sutil */
+}
+
+.text-info {
+  font-weight: 700;
+}
+/* Paginación */
+.pagination {
+  margin-top: 1rem;
+}
+
+.pagination .page-link {
+  color: var(--primary-color);
+  font-weight: 500;
+  padding: 10px 15px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.pagination .page-link:hover {
+  background-color: var(--secondary-color);
+  color: var(--white);
+}
+
+.pagination .page-item.active .page-link {
+  background-color: var(--primary-color);
+  color: var(--white);
+}

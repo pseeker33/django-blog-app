@@ -59,13 +59,13 @@
   <main class="container content" role="main">
     <div class="row">      
       <!-- Main Content Column -->
-      <div class="col-md-9 pr-0">
+      <div class="col-md-8">
         {% block content %} {% endblock %}
       </div>
 
       <!-- Sidebar Widgets Column -->
       {% if request.path == '/blog/home/' %}
-        <div class="col-md-3 pl-0 sidebar-fixed">
+        <div class="col-md-4">
           <!-- Side Widget -->
           <div class="card my-4">
             <h5 class="card-header text-center">Logged in Information</h5>

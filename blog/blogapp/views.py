@@ -8,9 +8,9 @@ class HomeView(LoginRequiredMixin, ListView):
     template_name = 'blogapp/home.html'
     context_object_name = 'blog_entries'
     ordering = ['-entry_date']
-    paginate_by = 3
+    paginate_by = 6
 
-class EntryDetailView(LoginRequiredMixin, DetailView):
+class EntryDetalView(LoginRequiredMixin, DetailView):
     model = Entry
     template_name = 'blogapp/entry_detail.html'
     context_object_name = 'entry-detail'
