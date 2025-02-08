@@ -1,18 +1,49 @@
 {% extends 'blogapp/base.html' %}
+{% load static %}
+
 {% block content %}
-<!-- Blog Entries Column -->
-<div class="col-md-8">
-    <div class="card mb-4 mt-4">
+<!-- Enlace al archivo CSS específico de register -->
+<link href="{% static 'userapp/css/register.css' %}" rel="stylesheet">
+
+<div class="register-container">
+    <div class="card">
         <div class="card-header">
-            Create an Account
+            <h2>Create an Account</h2>
         </div>
         <div class="card-body">
             <form method="post">
                 {% csrf_token %}
-                {{form.as_p}}
-                <button type="submit" class="btn btn-primary">Create Acount</button>
+                <div class="form-group">
+                    <label for="id_username">Username</label>
+                    {{ form.username }}
+                    {% if form.username.help_text %}
+                        <small class="helptext">{{ form.username.help_text }}</small>
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    <label for="id_email">Email</label>
+                    {{ form.email }}
+                    {% if form.email.help_text %}
+                        <small class="helptext">{{ form.email.help_text }}</small>
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    <label for="id_password1">Password</label>
+                    {{ form.password1 }}
+                    {% if form.password1.help_text %}
+                        <small class="helptext">{{ form.password1.help_text }}</small>
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    <label for="id_password2">Confirm Password</label>
+                    {{ form.password2 }}
+                    {% if form.password2.help_text %}
+                        <small class="helptext">{{ form.password2.help_text }}</small>
+                    {% endif %}
+                </div>
+                <button type="submit" class="btn btn-primary">Create Account</button>
             </form>
         </div>
-    </div>   
+    </div>
 </div>
-{% endblock %} 
+{% endblock %}

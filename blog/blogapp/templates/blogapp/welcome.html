@@ -1,10 +1,17 @@
 {% extends 'blogapp/base.html' %}
+{% load static %}
 
 {% block content %}
-  <div class="container">
-    <h1>Welcome!</h1>
-    <!-- <p>Please choose an option:</p> -->
-    <a href="{% url 'login' %}" class="btn btn-primary">Log In</a>
-    <a href="{% url 'register' %}" class="btn btn-secondary">Register</a>
-  </div>
+
+<link href="{% static 'blogapp/css/welcome.css' %}" rel="stylesheet">
+
+<!-- Imagen de fondo -->
+<img src="{% static 'blogapp/images/welcome-image.svg' %}" alt="Welcome Image" class="welcome-image">
+
+<div class="welcome-container">
+  <h1>Welcome!</h1>
+  <!-- <p>Please choose an option:</p> -->
+  <a href="{% url 'login' %}" class="btn btn-primary">Log In</a>
+  <a href="{% url 'register' %}" class="btn btn-primary">Register</a>
+</div>
 {% endblock %}

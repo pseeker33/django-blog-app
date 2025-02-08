@@ -1,0 +1,80 @@
+/* Estilos específicos para la página de registro */
+
+/* Contenedor principal */
+.register-container {
+  max-width: 550px; /* Ancho máximo del formulario */
+  margin: 0 auto; /* Centrado horizontal */
+  padding: 2rem;
+  background-color: var(--white); /* Fondo blanco */
+  border-radius: 12px; /* Bordes redondeados */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra */
+  margin-top: 1rem;
+}
+
+/* Encabezado del formulario */
+.register-container .card-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.register-container .card-header h2 {
+  font-size: 1.75rem; /* Tamaño de fuente más grande */
+  color: var(--secondary-color); /* Color secundario */
+  margin: 0;
+  font-weight: 600; /* Fuente más gruesa */
+}
+
+/* Estilos para el formulario */
+.register-container .form-group {
+  margin-bottom: 1rem;
+}
+
+.register-container .form-group label {
+  display: block;
+  margin-bottom: 0rem;
+  color: var(--text-color); /* Color de texto */
+  font-weight: 500;
+  font-size: 0.9rem; /* Tamaño de fuente más pequeño */
+}
+
+.register-container .form-group input {
+  width: 100%;
+  padding: 0.5rem; /* Padding reducido */
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  font-size: 0.9rem; /* Tamaño de fuente más pequeño */
+  transition: border-color 0.2s ease;
+  height: 28px; /* Altura fija para los inputs */
+}
+
+.register-container .form-group input:focus {
+  border-color: var(--primary-color); /* Color primario al enfocar */
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1); /* Sombra al enfocar */
+}
+
+/* Estilos para el botón de enviar */
+.register-container button[type="submit"] {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 1rem;
+  font-weight: 500;
+  width: 100%; /* Ancho completo */
+}
+
+.register-container button[type="submit"]:hover {
+  background-color: var(--accent-color); /* Color de acento al hacer hover */
+}
+
+/* Mensajes de ayuda */
+.register-container .helptext {
+  font-size: 0.7rem; /* Tamaño de fuente más pequeño */
+  color: #666; /* Color de texto secundario */
+  margin-top: 0.25rem;
+}
