@@ -93,22 +93,43 @@
   padding: 0  0.5rem;
 }
 
-/* Botón "Read More" */
+/* Boton Show */
+
 .card .btn-read-more {
   position: absolute;
-  top: 35%;
-  left: 30%;
+  top: 55%;
+  left: 20%;
   opacity: 0;
   background-color: rgba(79, 70, 229, 0.5); /* Color semitransparente */
   border: none;
-  padding: 10px 20px;
   font-size: 0.9rem;
   color: white;
   font-weight: 500;
-  border-radius: 8px;
   transition: opacity 0.3s ease-in-out, background-color 0.7s ease;
   pointer-events: none;
   cursor: pointer;
+  padding: 5px 6px;
+  border-radius: 15px;
+  width: 80px;
+}
+
+.card .btn-delete {
+  position: absolute;
+  top: 55%; /* Misma posición que "Read More" */
+  left: 50%; /* Ajusta la posición a la derecha */
+  opacity: 0;
+  background-color: rgba(255, 0, 0, 0.45); /* Rojo semitransparente */
+  border: none;
+  font-size: 0.9rem;
+  color: white;
+  font-weight: 500;
+  border-radius: 15px;
+  transition: opacity 0.3s ease-in-out, background-color 0.7s ease;
+  pointer-events: none;
+  cursor: pointer;
+  padding: 5px 6px;
+  border-radius: 15px;
+  width: 80px;
 }
 
 .card:hover .btn-read-more {
@@ -122,6 +143,23 @@
 
 .blog-card .btn-read-more:hover {
   background-color: var(--primary-color);
+  transform: scale(1.05);
+}
+
+/* Boton Delete */
+
+
+.card:hover .btn-delete {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.card .btn-delete:hover {
+  background-color: rgba(255, 0, 0, 1); /* Rojo sólido en hover */
+}
+
+.blog-card .btn-delete:hover {
+  background-color: rgba(255, 0, 0, 1);
   transform: scale(1.05);
 }
 

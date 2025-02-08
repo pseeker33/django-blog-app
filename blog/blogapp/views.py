@@ -1,7 +1,8 @@
 from django.shortcuts import redirect, render
-from django.views.generic import View, ListView, DetailView, CreateView
-from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Entry
+from django.views.generic import View, ListView, DetailView, CreateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy # Para la redirección después de eliminar
 
 class HomeView(LoginRequiredMixin, ListView):
     model = Entry
@@ -22,3 +23,12 @@ class CreateEntryView(LoginRequiredMixin, CreateView):
     def form_valid(self,form):
         form.instance.entry_autor = self.request.user
         return super().form_valid(form)
+
+class DeleteEntryView(LoginRequiredMixin, DeleteView):
+    model = Entry
+    template_name = 'blogapp/delete_entry.html'  # Template de confirmación
+    success_url = reverse_lazy('blog-home')  # Redirige a la página principal
+
+    def get_queryset(self): # Solo permite eliminar sus propios posts
+        queryset = super().get_queryset()
+        return queryset.filter(entry_autor=self.request.user)
