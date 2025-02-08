@@ -17,14 +17,14 @@
   <link href="{% static 'blogapp/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
   
   <!-- Custom styles -->
-  <link href="{% static 'blogapp/css/blog-home.css' %}" rel="stylesheet">  
+  <link href="{% static 'blogapp/css/base.css' %}" rel="stylesheet">  
 </head>
 
 <body class="wrapper">
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" role="navigation">
     <div class="container">
-      <a class="navbar-brand" href="{% url 'blog-home' %}">Blogging Dashboard</a>
+      <a class="navbar-brand" href="{% url 'blog-dashboard' %}">Blogging Dashboard</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -32,7 +32,7 @@
         <ul class="navbar-nav ml-auto">
           {% if user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'create_entry' %}">Post Now</a>
+              <a class="nav-link" href="{% url 'create_entry' %}">Create Post</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'profile' %}">Profile</a>
@@ -67,7 +67,7 @@
       </div>
 
       <!-- Sidebar Widgets Column -->
-      {% if request.path == '/blog/home/' %}
+      {% if request.path == '/blog/dashboard/' %}
         <div class="col-md-3 pl-0 sidebar-fixed">
           <!-- Side Widget -->
           <div class="card my-4">

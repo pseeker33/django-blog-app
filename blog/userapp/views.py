@@ -9,7 +9,7 @@ from django.contrib import messages
 class WelcomeView(View):
     def get(self, request):
         if request.user.is_authenticated:
-            return redirect('blog-home')  # If authenticaded, go Home
+            return redirect('blog-dashboard')  # If authenticaded, go Dashboard
         return render(request, 'blogapp/welcome.html')
     
 class RegisterView(View):
@@ -25,7 +25,7 @@ class RegisterView(View):
             password = request.POST['password1']
             user = authenticate(request, username=username, password=password)
             login(request, user)
-            return redirect('blog-home')
+            return redirect('blog-dashboard')
         return render(request, 'userapp/register.html', {'form': form})
 
 class ProfileView(LoginRequiredMixin, View):

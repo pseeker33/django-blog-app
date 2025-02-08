@@ -3,13 +3,13 @@
 
 {% block content %}
 
-<link href="{% static 'blogapp/css/createentry.css' %}" rel="stylesheet">
+<link href="{% static 'blogapp/css/create-post.css' %}" rel="stylesheet">
 
 <!-- Blog Entries Column -->
 <div class="create-entry-container">
     <div class="create-entry-card">
         <div class="card-header">
-            <h2>Create Blog Post</h2>
+            <h2>Create New Post</h2>
         </div>
         <div class="card-body">
             <form method="post" class="create-entry-form">
@@ -22,7 +22,9 @@
                     <label for="id_entry_text">Content</label>
                     {{ form.entry_text }}
                 </div>
-                <button type="submit" class="btn btn-primary">Post Entry</button>
+                <button type="submit" class="btn btn-primary mb-2">Create Post</button>
+                <a href="{% url 'blog-dashboard' %}" class="btn btn-cancel ">Cancel</a>
+                
             </form>
         </div>
     </div>   

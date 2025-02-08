@@ -1,9 +1,0 @@
-{% extends 'blogapp/base.html' %}
-
-{% block content %}
-    <h1>¿Do you really want to delete "{{ entry }}"?</h1>  <form method="post">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-danger">Yes I do</button>
-        <a href="{% url 'entry-detail' entry.pk %}" class="btn btn-secondary">Cancel</a>
-    </form>
-{% endblock %}

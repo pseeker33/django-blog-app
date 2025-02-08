@@ -35,10 +35,11 @@
 }
 
 .create-entry-card .card-header h2 {
-  font-size: 1.75rem; /* Tamaño de fuente más pequeño */
+  font-size: 1.6rem; /* Tamaño de fuente más pequeño */
   color: var(--secondary-color);
   margin: 0;
   font-weight: 600; /* Fuente más gruesa */
+  text-align: center;
 }
 
 /* Estilos para el formulario */
@@ -75,7 +76,7 @@
 }
 
 .create-entry-form .form-group textarea {
-  height: 150px; /* Altura inicial para el textarea */
+  height: 120px; /* Altura inicial para el textarea */
   resize: vertical; /* Permite redimensionar verticalmente */
 }
 
@@ -88,13 +89,31 @@
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.2s ease;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   font-weight: 500;
-  width: 100%; /* Ancho completo */
+  width: 100%; 
 }
 
 .create-entry-form button[type="submit"]:hover {
   background-color: var(--accent-color);
+}
+
+/* Estilos para el botón Cancel */
+.create-entry-form .btn-cancel { /* Selector más específico */
+  background-color: var(--secondary-color); /* Ejemplo: color secundario */
+  color: var(--white);
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 1.1rem;
+  font-weight: 500;
+  width: 100%; /* Ancho completo */
+}
+
+.create-entry-form .btn-cancel:hover {
+  background-color: var(--accent-color); /* Ejemplo: otro color en hover */
 }
 
 /* Mejorar el contraste con el fondo */

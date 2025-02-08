@@ -103,7 +103,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-LOGIN_REDIRECT_URL = 'blog-home' # After login, go Home
+LOGIN_REDIRECT_URL = 'blog-dashboard' # After login, go Home
 LOGOUT_REDIRECT_URL = 'welcome' # After logout, go Welcome
 LOGIN_URL = '/users/login'
 

@@ -4,10 +4,10 @@ from django.views.generic import View, ListView, DetailView, CreateView, DeleteV
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy # Para la redirección después de eliminar
 
-class HomeView(LoginRequiredMixin, ListView):
+class DashboardView(LoginRequiredMixin, ListView):
     model = Entry
-    template_name = 'blogapp/home.html'
-    context_object_name = 'blog_entries'
+    template_name = 'blogapp/dashboard.html'
+    context_object_name = 'dashboard'
     ordering = ['-entry_date']
     paginate_by = 6
 
@@ -27,7 +27,7 @@ class CreateEntryView(LoginRequiredMixin, CreateView):
 class DeleteEntryView(LoginRequiredMixin, DeleteView):
     model = Entry
     template_name = 'blogapp/delete_entry.html'  # Template de confirmación
-    success_url = reverse_lazy('blog-home')  # Redirige a la página principal
+    success_url = reverse_lazy('blog-dashboard')  # Redirige a la página principal
 
     def get_queryset(self): # Solo permite eliminar sus propios posts
         queryset = super().get_queryset()
