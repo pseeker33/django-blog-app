@@ -1,19 +1,41 @@
 import os
+from pathlib import Path
+import dj_database_url
+from dotenv import load_dotenv
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
+# CONFIGURACION PARA DEPLOYMENT EN RENDER
+
+
+# Cargar variables de entorno
+load_dotenv()
+
+# Actualizamos a la versión moderna usando Path
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '&55+qjzxcvj%c0^&_hr$0rr2lf)8i0r-h@fq9yq4atez%njnx@'
+# Usamos la variable de entorno, con fallback a tu clave actual
+SECRET_KEY = os.getenv('SECRET_KEY', '&55+qjzxcvj%c0^&_hr$0rr2lf)8i0r-h@fq9yq4atez%njnx@')
+
+# SECRET_KEY = '&55+qjzxcvj%c0^&_hr$0rr2lf)8i0r-h@fq9yq4atez%njnx@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = []
+# Hosts permitidos
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.onrender.com']
+
+# Database
+DATABASES = {
+    'default': dj_database_url.config(
+        default='sqlite:///' + str(BASE_DIR / 'blog/db.sqlite3'),
+        conn_max_age=600
+    )
+}
+
+# Static files
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 # Application definition
@@ -60,15 +82,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'blog.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
 
 
 # Password validation
