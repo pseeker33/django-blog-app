@@ -55,8 +55,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blogapp',
-    'userapp',
+    'blogapp.apps.BlogappConfig',    # Mejor práctica: usar la clase Config
+    'userapp.apps.UserappConfig',    # Mejor práctica: usar la clase Config
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
