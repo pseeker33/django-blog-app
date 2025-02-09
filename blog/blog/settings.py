@@ -16,9 +16,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # Usamos la variable de entorno, con fallback a tu clave actual
-SECRET_KEY = os.getenv('SECRET_KEY', '&55+qjzxcvj%c0^&_hr$0rr2lf)8i0r-h@fq9yq4atez%njnx@')
+SECRET_KEY = os.getenv('SECRET_KEY')
+if not SECRET_KEY:
+    raise ValueError("No SECRET_KEY set in environment variables")
 
-# SECRET_KEY = '&55+qjzxcvj%c0^&_hr$0rr2lf)8i0r-h@fq9yq4atez%njnx@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'True') == 'True'
@@ -37,6 +38,11 @@ DATABASES = {
 # Static files
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+# Servir archivos estáticos y media en producción
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+# Compresión de archivos estáticos en produccion
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Application definition
 
@@ -53,6 +59,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
