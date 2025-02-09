@@ -39,7 +39,7 @@ DATABASES = {
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Servir archivos estáticos y media en producción
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 # Compresión de archivos estáticos en produccion
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
