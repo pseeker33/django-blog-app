@@ -14,7 +14,6 @@ load_dotenv()
 # Actualizamos a la versión moderna usando Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: keep the secret key used in production secret!
 # Usamos la variable de entorno, con fallback a tu clave actual
 SECRET_KEY = os.getenv('SECRET_KEY')
 if not SECRET_KEY:
