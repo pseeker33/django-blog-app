@@ -1,6 +1,6 @@
 /* Contenedor principal */
 .login-container {
-  max-width: 450px; /* Ancho máximo del formulario */
+  max-width: 400px; /* Ancho máximo del formulario */
   margin: 0 auto; /* Centrado horizontal */
   padding: 2rem;
   background-color: var(--white); /* Fondo blanco */
@@ -17,15 +17,16 @@
 }
 
 .login-container .card-header h2 {
-  font-size: 1.75rem; /* Tamaño de fuente más grande */
+  font-size: 1.5rem; /* Tamaño de fuente más grande */
   color: var(--secondary-color); /* Color secundario */
   margin: 0;
   font-weight: 600; /* Fuente más gruesa */
+  text-align: center;
 }
 
 /* Estilos para el formulario */
 .login-container .form-group {
-  margin-bottom: 1rem;
+  margin-bottom: 1.3rem;
 }
 
 .login-container .form-group label {
@@ -64,6 +65,7 @@
   font-size: 1rem;
   font-weight: 500;
   width: 100%; /* Ancho completo */
+  margin-top: 2rem;
 }
 
 .login-container button[type="submit"]:hover {
